@@ -1,0 +1,61 @@
+/*!
+Theme Name: epic
+Theme URI: https://sumun.net
+Author: Sumun
+Author URI: https://sumun.net
+Description: epic Full Site Editing Theme
+Version: 1.0.0
+Tested up to: 8.2
+Requires PHP: 7.4
+License: GNU General Public License v2 or later
+License URI: LICENSE
+Text Domain: epic
+Tags: full site editing, sass, 
+
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned.
+
+*/
+
+/*--------------------------------------------------------------
+# Normalize
+--------------------------------------------------------------*/
+@import "vendor/normalize";
+
+
+/*--------------------------------------------------------------
+# Abstracts
+--------------------------------------------------------------*/
+@import "abstracts/mixins";
+
+
+/*--------------------------------------------------------------
+# Base
+--------------------------------------------------------------*/
+@import "base/typography";
+@import "base/spacer";
+@import "base/layout";
+@import "base/fields";
+@import "base/forms";
+@import "base/utilities";
+
+/*--------------------------------------------------------------
+# Components
+--------------------------------------------------------------*/
+@import "components/buttons";
+@import "components/cover";
+@import "components/group";
+@import "components/lists";
+@import "components/nav";
+@import "components/query";
+@import "components/search";
+
+
+/*--------------------------------------------------------------
+# Pages
+--------------------------------------------------------------*/
+@import "pages/hero";
+@import "pages/header";
+@import "pages/homepage";
+@import "pages/blog";
+@import "pages/footer";

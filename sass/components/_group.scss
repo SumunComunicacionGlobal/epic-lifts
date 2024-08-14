@@ -1,0 +1,31 @@
+.is-style-group-horizontal-scroll {
+    gap: var(--wp--preset--spacing--10);
+    padding: var(--wp--preset--spacing--10);
+    margin: 0;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    display: flex;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+
+    & > .wp-block-group, & > .wc-block-product  {
+        flex: 0 0 auto !important;
+        max-width: 296px;
+        margin-block-start: 0;
+
+        @media ($below-mobile-xs) {
+            max-width: 242px;
+        }
+    }
+}
+
+.is-style-title-has-image,
+.is-style-title-has-image > a {
+    display: flex;
+    gap: .5rem;
+    align-items: center;
+}

@@ -1,0 +1,25 @@
+.wp-block-query .wp-block-cover {
+
+    .wp-block-cover__background {
+        transition: .5s ease-in-out;
+    }
+
+    &.card {
+        align-items: stretch !important;
+
+    }
+
+    &:hover {
+        
+        .wp-block-cover__background {
+            transition: .5s ease-in-out;
+            opacity: 1; 
+        }
+
+        .wp-block-safe-svg-svg-icon {
+            color: var(--wp--preset--color--primary-10);
+        }
+
+    }
+    
+}

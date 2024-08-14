@@ -1,0 +1,65 @@
+.wp-block-button .wp-block-button__link {
+	&:hover {
+		
+	}
+}
+
+
+.wp-block-button.is-style-with-arrow .wp-block-button__link,
+.wp-block-button.is-style-outline-with-arrow .wp-block-button__link {
+
+	display: flex;
+	justify-content: center;
+	align-items: flex-start;
+
+	&:hover {
+		
+		&::after {
+			margin-left: 1rem;
+			transition: margin-left 0.3s ease;
+		}
+	}
+
+	&:after {
+		content: '';
+		display: inline-block;
+		width: 24px;
+		height: 24px;
+		margin-left: 0.5rem;
+		background-color: currentColor; /* Esto asegura que el color del SVG coincida con el color del texto */
+		mask-image: url(./assets/icons/arrow-right.svg);
+		mask-size: cover;
+		mask-repeat: no-repeat;
+		transition: margin-left 0.3s ease;
+	}
+
+}
+
+.wp-block-button.is-style-outline-with-arrow .wp-block-button__link {
+	background: transparent none;
+    border-color: currentColor;
+    border-width: 2px;
+    border-style: solid;
+    color: currentColor;
+    padding-top: 0.667em;
+    padding-right: 1.33em;
+    padding-bottom: 0.667em;
+    padding-left: 1.33em;
+}
+
+
+.btn-prev-slide a.wp-block-button__link,
+.btn-next-slide a.wp-block-button__link {
+    padding: 0;
+    width: 56px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+	border-width: 1px;
+
+	&:hover {
+		color: var(--wp--preset--color--accent) !important;
+	}
+
+}

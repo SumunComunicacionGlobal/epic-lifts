@@ -1,0 +1,11 @@
+.home #hero {
+    position: relative;
+
+    @media ($below-tablet) {
+        padding-top: 5rem !important;
+
+        .has-heading-4-font-size {
+            font-size: 1rem !important;
+        }
+    }
+}
