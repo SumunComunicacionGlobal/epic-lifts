@@ -3,7 +3,24 @@
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
 }
- 
+
+.home {
+
+    #masthead {
+        .wp-block-site-logo {
+            @media ($below-tablet) {
+                margin: 3rem 0;
+            }
+        }
+    }
+
+    #hero.wp-block-cover {
+        padding-top: 14rem !important;
+    }
+
+}
+
+
 @keyframes bodyAnimation {
     0% {
         opacity: 0;
@@ -40,9 +57,11 @@
     @supports (animation-timeline: scroll()) {
   
         .move-up-block {
-            animation: move-up-block ease-in-out both;
-            animation-timeline: view();
-            transform-origin: center; /* Ajusta el punto de origen según tus necesidades */
+            @media ($above-tablet) {
+                animation: move-up-block ease-in-out both;
+                animation-timeline: view();
+                transform-origin: center; /* Ajusta el punto de origen según tus necesidades */
+            } 
         }
 
         p.scroll--reveal-text {
@@ -61,4 +80,12 @@
             }
         }
     }
+}
+
+.section-blog {
+    @media ($above-tablet) { margin-top: 0 !important; }
+}
+
+#section-blog {
+    @media ($below-tablet) { margin-top: 3rem !important; }
 }

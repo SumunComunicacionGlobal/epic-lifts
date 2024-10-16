@@ -10,6 +10,7 @@ html {
 	box-sizing: border-box;
 	scroll-behavior: smooth;
 	scrollbar-gutter: stable;
+	scroll-padding-top: 8rem;
 }
 
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
@@ -51,14 +52,6 @@ body.theme-epic {
  
 h1, h2, h3, h4, h5, h6 {
     text-wrap: pretty;
-}
-
-/**
-* Ajusta la longitud de las líneas de los párrafos.
-*/
-
-p {
-	text-wrap: balance;
 }
 
 /**

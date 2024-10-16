@@ -14,15 +14,17 @@
         display: grid;
         transition: .3s ease-in-out;
 
-        &.secondary-menu-open {
-            
+        &.secondary-menu-open {   
             body.scrolled & {
                 ul.max-mega-menu {
-                    grid-template-columns: repeat(3, auto) 1fr repeat(5, auto);
+                    grid-template-columns: repeat(2, auto) 1fr repeat(5, auto);
         
-                    li:nth-child(n+4):not(.toggle-secondary-menu) {
+                    li:nth-child(n+6):not(.toggle-secondary-menu) {
                         display: block !important;
-                        animation: appear-secondary-menu 0.3s ease-in-out;
+                    }
+
+                    li.mega-menu-item.wp-block-button {
+                        display: none !important;
                     }
                 }
             }
@@ -34,19 +36,20 @@
         @media ($above-tablet) {
             display: grid !important;
             //grid-template-columns: auto auto auto 1fr auto auto auto;
-            grid-template-columns: repeat(3, auto) 1fr repeat(4, auto);
+            grid-template-columns: repeat(2, auto) 1fr repeat(4, auto);
             width: 100% !important;
             gap: 2rem;
 
             a.mega-menu-link:hover {
-                color: var(--wp--preset--color--accent) !important;
+                color: var(--wp--preset--color--primary-10) !important;
             }
 
             body.scrolled & {
-                grid-template-columns: repeat(3, auto) 1fr;
+                grid-template-columns: repeat(3, auto) 1fr repeat(2, auto);
 
-                .toggle-secondary-menu {
-                    display: block !important;
+                .toggle-secondary-menu, li.mega-menu-item.wp-block-button {
+                    display: flex !important;
+                    opacity: 1;
                 }
             }
 
@@ -58,8 +61,7 @@
                 justify-self: start;
             }
         
-            li:nth-child(n+4):not(.toggle-secondary-menu) {
-                justify-self: end;
+            li:nth-child(n+6):not(.wp-block-post, .wp-block-button) {
 
                 body.scrolled & {
                     animation: appear-secondary-menu 0.3s ease-in-out;
@@ -75,36 +77,50 @@
                     font-size: var(--wp--preset--font-size--small) !important;
                 }
             }
+
+            li.mega-menu-item.wp-block-button {
+                display: none !important;
+                justify-content: end;  
+                transition: .3s ease;
+                transition-delay: 1s;
+                opacity: 0;        
+            }
         } 
     }
 
     @media ($below-tablet) {
         
         width: 100% !important;
-        
-        .mega-menu-wrap {
-            width: 100% !important;
-        }
 
         ul.max-mega-menu {
             
-            & > li.mega-menu-item > a.mega-menu-link {
+            & > li.mega-menu-item:nth-child(n+3) > a.mega-menu-link {
                 padding: .5rem 2.5rem !important;
                 background-color: var(--wp--preset--color--primary) !important;
                 border-radius: var(--wp--custom--border-radius--md) !important;
                 height: 4rem !important;
-                margin-bottom: .25rem !important;
+                line-height: 3rem !important;
             }
 
-            & > li.mega-menu-item:nth-child(3) > a.mega-menu-link {
+            & > li.mega-menu-item:nth-child(5) > a.mega-menu-link {
                 margin-bottom: 1rem !important;
             }
             
-            & > li.mega-menu-item:nth-child(n+4) > a.mega-menu-link {
+            & > li.mega-menu-item:nth-child(n+6) > a.mega-menu-link {
                 background-color: var(--wp--preset--color--neutral-100) !important;
+            }
+
+            & > li.mega-menu-item.button-contact-menu a.mega-menu-link {
+                margin-top: 1rem !important;
+                background-color: var(--wp--preset--color--background) !important;
             }
         }
     }
+}
+
+.button-contact-menu .mega-custom-icon::before{
+    margin-top: 0.5rem !important;
+    margin-left: 1rem !important;
 }
 
 .toggle-secondary-menu {
@@ -116,6 +132,47 @@
     }
 }
 
+.mega-toggle-block.mega-menu-toggle-animated-block.mega-toggle-block-2 {
+    background-color: var(--wp--preset--color--primary) !important;
+    border-radius: var(--wp--custom--border-radius--rounded);
+    width: 2.5rem;
+    height: 2.5rem !important;
+
+    button.mega-toggle-animated.mega-toggle-animated-slider {
+        color: #ffffff !important;
+    }
+}
+
+.btn-close-menu-mobile {
+    width: 2.5rem; /* 40px */
+    height: 2.5rem; /* 40px */
+    background-color: var(--wp--preset--color--text-medium);
+    border: none;
+    border-radius: 50%;
+    position: relative;
+    cursor: pointer;
+    float: right;
+
+    &::before,
+    &::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 12px;
+        height: 1.5px; /* Grosor del aspa */
+        background-color: white;
+    }
+
+    &::before {
+        transform: translate(-50%, -50%) rotate(45deg);
+    }
+    
+    &::after {
+        transform: translate(-50%, -50%) rotate(-45deg);
+    }
+    
+}
 
 
 @keyframes appear-secondary-menu {

@@ -25,6 +25,9 @@ if ( ! function_exists( 'smn_support' ) ) :
 
 		// Enqueue editor styles.
 		add_editor_style( 'style.css' );
+
+		// Add support for excerpts in pages.
+		add_post_type_support( 'page', 'excerpt' );
 	}
 
 endif;

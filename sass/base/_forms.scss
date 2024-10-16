@@ -1,3 +1,18 @@
 .wpcf7-acceptance .wpcf7-list-item {
 	margin: 0;
 }
+
+.form-group {
+	display: grid;
+	gap: var(--wp--custom--layout--block-gap);
+}
+
+button[type="submit"], input[type="submit"] {
+	background-color: transparent;
+	color: var(--wp--preset--color--primary);
+	border: 1px solid;
+	font-weight: bold;
+	border-radius: var(--wp--custom--border-radius--rounded);
+	padding: calc(0.5rem + 4px) 1.5em;
+	cursor: pointer;
+}

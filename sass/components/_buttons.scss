@@ -1,6 +1,7 @@
-.wp-block-button .wp-block-button__link {
+.wp-element-button, .wp-block-button__link {
+	transition: transform 0.3s ease;
 	&:hover {
-		
+		transform: scale(1.1);
 	}
 }
 
@@ -10,41 +11,34 @@
 
 	display: flex;
 	justify-content: center;
-	align-items: flex-start;
+	align-items: center;
 
-	&:hover {
-		
-		&::after {
-			margin-left: 1rem;
-			transition: margin-left 0.3s ease;
-		}
-	}
 
 	&:after {
 		content: '';
 		display: inline-block;
-		width: 24px;
-		height: 24px;
-		margin-left: 0.5rem;
+		width: 14px;
+		height: 14px;
+		margin-left: 1rem;
 		background-color: currentColor; /* Esto asegura que el color del SVG coincida con el color del texto */
 		mask-image: url(./assets/icons/arrow-right.svg);
 		mask-size: cover;
 		mask-repeat: no-repeat;
-		transition: margin-left 0.3s ease;
 	}
 
 }
 
-.wp-block-button.is-style-outline-with-arrow .wp-block-button__link {
+.wp-block-button.is-style-outline-with-arrow .wp-block-button__link,
+.wp-block-button.is-style-outline:not(.btn-next-slide, .btn-prev-slide) .wp-block-button__link {
 	background: transparent none;
     border-color: currentColor;
-    border-width: 2px;
+    border-width: 1px !important;
     border-style: solid;
     color: currentColor;
-    padding-top: 0.667em;
-    padding-right: 1.33em;
-    padding-bottom: 0.667em;
-    padding-left: 1.33em;
+    padding-top: 0.5rem;
+    padding-right: 1.5rem;
+    padding-bottom: 0.5rem;
+    padding-left: 1.5rem;
 }
 
 
@@ -58,8 +52,11 @@
     justify-content: center;
 	border-width: 1px;
 
-	&:hover {
-		color: var(--wp--preset--color--accent) !important;
-	}
+}
 
+.btn-prev-slide.disabled,
+.btn-next-slide.disabled {
+	pointer-events: none;
+	opacity: 0.5;
+	filter: invert(0.5);
 }

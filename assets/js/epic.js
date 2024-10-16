@@ -58,15 +58,15 @@ document.addEventListener('DOMContentLoaded', function() {
     // Función para actualizar el estado de los botones
     function updateButtons(currentSlide, slideCount) {
         if (currentSlide === 0) {
-            prevButton.disabled = true;
+            prevButton.classList.add('disabled');
         } else {
-            prevButton.disabled = false;
+            prevButton.classList.remove('disabled');
         }
 
         if (currentSlide === slideCount - 1) {
-            nextButton.disabled = true;
+            nextButton.classList.add('disabled');
         } else {
-            nextButton.disabled = false;
+            nextButton.classList.remove('disabled');
         }
     }
 
@@ -75,12 +75,16 @@ document.addEventListener('DOMContentLoaded', function() {
         // Asegúrate de que el carousel esté inicializado
         if ($carousel.hasClass('slick-initialized')) {
             // Añade eventos a los botones
-            prevButton.addEventListener('click', function() {
-                $carousel.slick('slickPrev');
+            prevButton.addEventListener('click', function(event) {
+                if (!prevButton.classList.contains('disabled')) {
+                    $carousel.slick('slickPrev');
+                }
             });
 
-            nextButton.addEventListener('click', function() {
-                $carousel.slick('slickNext');
+            nextButton.addEventListener('click', function(event) {
+                if (!nextButton.classList.contains('disabled')) {
+                    $carousel.slick('slickNext');
+                }
             });
 
             // Actualiza el estado de los botones al cargar
@@ -94,12 +98,16 @@ document.addEventListener('DOMContentLoaded', function() {
             // Si el carousel no está inicializado, espera a que se inicialice
             $carousel.on('init', function(event, slick) {
                 // Añade eventos a los botones
-                prevButton.addEventListener('click', function() {
-                    $carousel.slick('slickPrev');
+                prevButton.addEventListener('click', function(event) {
+                    if (!prevButton.classList.contains('disabled')) {
+                        $carousel.slick('slickPrev');
+                    }
                 });
 
-                nextButton.addEventListener('click', function() {
-                    $carousel.slick('slickNext');
+                nextButton.addEventListener('click', function(event) {
+                    if (!nextButton.classList.contains('disabled')) {
+                        $carousel.slick('slickNext');
+                    }
                 });
 
                 // Actualiza el estado de los botones al cargar
@@ -114,4 +122,19 @@ document.addEventListener('DOMContentLoaded', function() {
     } else {
         console.error('Los botones .btn-prev-slide y/o .btn-next-slide no se encontraron en el DOM.');
     }
+});
+
+document.addEventListener("DOMContentLoaded", function() {
+    // Selecciona el botón de cerrar menú móvil
+    const closeButton = document.querySelector(".btn-close-menu-mobile");
+
+    // Agrega un evento de click al botón de cerrar
+    closeButton.addEventListener("click", function() {
+        // Localiza el elemento con las clases y "mega-menu-open"
+        const megaMenuElement = document.querySelector(".mega-menu-open");
+        if (megaMenuElement) {
+            // Quita la clase "mega-menu-toggle" del elemento localizado
+            megaMenuElement.classList.remove("mega-menu-open");
+        }
+    });
 });

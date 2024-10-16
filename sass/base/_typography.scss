@@ -3,7 +3,11 @@
 	color: var(--wp--preset--color--secondary);
 }
 
-.has-mudstone-font-family, .has-display-font-size {
+.has-display-font-size {
 	line-height: var(--wp--custom--line-height--tiny);
 }
 
+
+.wp-block-heading mark {
+	background: transparent;
+}

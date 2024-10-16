@@ -17,6 +17,10 @@ wp.domReady( () => {
 			name: 'arrow-separator-list',
 			label: 'Flecha con separador',
 		},
+		{
+			name: 'arrow-mini-separator-list',
+			label: 'Flecha mini con separador',
+		},
 	] );
 	wp.blocks.registerBlockStyle( 'core/button', [
 		{

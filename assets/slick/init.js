@@ -4,7 +4,7 @@
  */
 (function ($) {
   $('.wp-block-cb-carousel').slick({
-    fade: true,
+    fade: false,
   });
 
 })(jQuery);

@@ -2,7 +2,7 @@
     padding: var(--wp--custom--layout--block-gap);
 }
 
-@media ($above-tablet)  {
+@media ($above-desktop)  {
     body {
         --wp--style--root--padding-right: 4rem;
         --wp--style--root--padding-left: 4rem;

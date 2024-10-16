@@ -1,11 +1,21 @@
-.home #hero {
+#hero.wp-block-cover{
     position: relative;
 
     @media ($below-tablet) {
-        padding-top: 5rem !important;
+        padding-top: 10rem !important;
+        min-height: 680px !important;
 
         .has-heading-4-font-size {
             font-size: 1rem !important;
         }
     }
 }
+
+#hero >.wp-block-cover {
+
+    @media ($below-tablet) {
+        padding-top: 5rem !important;
+        
+    }
+}
+

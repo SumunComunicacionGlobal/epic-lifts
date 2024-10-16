@@ -2,7 +2,7 @@ ol.has-background, ul.has-background {
     padding: 0;
 }
 
-ul.is-style-separator-list, ul.is-style-arrow-separator-list {
+ul.is-style-separator-list, ul.is-style-arrow-separator-list, ul.is-style-arrow-mini-separator-list {
 	
     padding: 0;
     list-style: none;
@@ -26,7 +26,7 @@ ul.is-style-separator-list, ul.is-style-arrow-separator-list {
 
 
 
-ul.is-style-arrow-list, ul.is-style-arrow-separator-list {
+ul.is-style-arrow-list, ul.is-style-arrow-separator-list, ul.is-style-arrow-mini-separator-list {
 	list-style: none;
 	position: relative;
 	padding: 0;
@@ -64,4 +64,19 @@ ul.is-style-arrow-separator-list {
             top: calc(var(--wp--preset--spacing--10) + 6px);
         }
     }
+}
+
+ul.is-style-arrow-mini-separator-list {
+
+	li:not(:first-child) {
+		padding: var(--wp--preset--spacing--10) 0 var(--wp--preset--spacing--10) var(--wp--preset--spacing--40);
+	}
+
+	li:before{
+		content: url("assets/icons/arrow-right-mini.svg");
+		position: absolute;
+		top: auto;
+		left: 0;
+	}
+
 }
