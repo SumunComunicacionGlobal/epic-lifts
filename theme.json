@@ -139,6 +139,11 @@
 				"neutral-black": "#000000",
 				"neutral-white": "#FFFFFF"
 			},
+			"font-weight": {
+				"bold": "600",
+				"light": "300",
+				"normal": "400"
+			},
 			"layout": {
 				"block-gap": "2rem",
 				"block-gap-large": "40px",
@@ -158,13 +163,7 @@
 				"headings": 1.2,
 				"normal": 1.5,
 				"tiny": 1
-			},
-			"font-weight": {
-				"light": "300",
-				"normal": "400",
-				"bold": "600"
 			}
-
 		},
 		"layout": {
 			"contentSize": "var(--wp--custom--layout--content)",
@@ -222,6 +221,34 @@
 			"customFontSize": false,
 			"defaultFontSizes": false,
 			"dropCap": false,
+			"fontFamilies": [
+				{
+					"fontFace": [
+						{
+							"fontDisplay": "block",
+							"fontFamily": "Open Sans",
+							"fontStretch": "normal",
+							"fontStyle": "normal",
+							"fontWeight": "400 600",
+							"src": [
+								"file:./assets/fonts/OpenSans-VariableFont_wdth,wght.ttf"
+							]
+						},{
+							"fontDisplay": "block",
+							"fontFamily": "Open Sans",
+							"fontStretch": "normal",
+							"fontStyle": "italic",
+							"fontWeight": "400 600",
+							"src": [
+								"file:./assets/fonts/OpenSans-Italic-VariableFont_wdth,wght.ttf"
+							]
+						}
+					],						
+					"fontFamily": "\"Open Sans\", sans-serif",
+					"name": "Open Sans",
+					"slug": "open-sans"
+				}
+			],
 			"fontSizes": [
 				{
 					"name": "Display",
