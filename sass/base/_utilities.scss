@@ -17,3 +17,21 @@ a.stretched-link, .stretched-link > a {
 .d-z-index-2 {
     z-index: 2;
 }
+
+.mt-0 {
+    margin-block-start: 0;
+}
+
+.mt-1 {
+    margin-block-start: var(--wp--preset--spacing--10);
+    margin-top: var(--wp--preset--spacing--10);
+}
+
+.mt-2 {
+    margin-block-start: var(--wp--preset--spacing--20);
+    margin-top: var(--wp--preset--spacing--20);
+}
+
+.mb-1 {
+    margin-block-end: var(--wp--preset--spacing--10);
+}

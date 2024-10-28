@@ -11,14 +11,21 @@
     }
 
     &:hover {
+
+        color: var(--wp--preset--color--background) !important;
         
         .wp-block-cover__background {
             transition: .5s ease-in-out;
             opacity: 1; 
+            background-color: var(--wp--preset--color--primary) !important;
         }
 
         .wp-block-safe-svg-svg-icon {
             color: var(--wp--preset--color--primary-10);
+        }
+
+        .has-primary-color, a {
+            color: var(--wp--preset--color--background) !important;
         }
 
     }

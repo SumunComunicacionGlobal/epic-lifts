@@ -28,7 +28,7 @@ textarea {
 	}
 
 	&::placeholder {
-		color: inherit;
+		color: var(--wp--preset--color--foreground);
 		opacity: 1; /* Firefox */
 		font-style: italic;
 	}
