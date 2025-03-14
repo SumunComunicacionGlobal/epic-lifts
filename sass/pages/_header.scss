@@ -1,3 +1,5 @@
+@use '../abstracts/mixins' as *;
+
 #masthead {
     position: fixed;
     width: 100%;
@@ -10,16 +12,12 @@
     
     @media ($below-tablet) {
         
-        bottom: 0;
-        display: flex;
-        flex-direction: column;
-        align-items: stretch;
-        justify-content: space-between;
+        position: relative;
 
         .wp-block-group:has(.wp-block-site-logo) {
             position: absolute;
-            top: -90vh;
-            transition: top .3s ease-in-out, opacity .5s ease;
+            top: 0;
+            transition: opacity .5s ease-in-out;
 
             .wp-block-site-logo img {
                 max-width: 94%;
@@ -29,20 +27,20 @@
         .scrolled & {
             
             .wp-block-group:has(.wp-block-site-logo) {
-                top: -120vh;
                 opacity: 0;
-                
             }
         }
 
         #mega-menu-wrap-max_mega_menu_1 .mega-menu-toggle.mega-menu-open + #mega-menu-max_mega_menu_1 {
             display: grid;
-            height: 100vh;
+            height: 100dvh;
             transition: height .3s ease-in-out, display .5s ease allow-discrete;
         }
 
         #navbar {
             border: 0 !important;
+            position: fixed;
+            bottom: 0;
 
             .mega-menu-wrap {
                 width: 100% !important;
@@ -101,7 +99,7 @@
             .mega-menu-toggle {
                 padding: 0 10px !important;
                 margin-bottom: 2rem;
-                backdrop-filter: blur(8px);
+                backdrop-filter: blur(50px);
             }
         }
     }

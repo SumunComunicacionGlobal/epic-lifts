@@ -20,44 +20,44 @@ Use it to make something cool, have fun, and share what you've learned.
 /*--------------------------------------------------------------
 # Normalize
 --------------------------------------------------------------*/
-@import "vendor/normalize";
+@use "vendor/normalize";
 
 
 /*--------------------------------------------------------------
 # Abstracts
 --------------------------------------------------------------*/
-@import "abstracts/mixins";
+@use "abstracts/mixins";
 
 
 /*--------------------------------------------------------------
 # Base
 --------------------------------------------------------------*/
-@import "base/typography";
-@import "base/spacer";
-@import "base/layout";
-@import "base/fields";
-@import "base/forms";
-@import "base/utilities";
+@use "base/typography";
+@use "base/spacer";
+@use "base/layout";
+@use "base/fields";
+@use "base/forms";
+@use "base/utilities";
 
 /*--------------------------------------------------------------
 # Components
 --------------------------------------------------------------*/
-@import "components/buttons";
-@import "components/cover";
-@import "components/cards";
-@import "components/group";
-@import "components/lists";
-@import "components/nav";
-@import "components/pagination";
-@import "components/query";
-@import "components/search";
+@use "components/buttons";
+@use "components/cover";
+@use "components/cards";
+@use "components/group";
+@use "components/lists";
+@use "components/nav";
+@use "components/pagination";
+@use "components/query";
+@use "components/search";
 
 
 /*--------------------------------------------------------------
 # Pages
 --------------------------------------------------------------*/
-@import "pages/hero";
-@import "pages/header";
-@import "pages/homepage";
-@import "pages/blog";
-@import "pages/footer";
+@use "pages/hero";
+@use "pages/header";
+@use "pages/homepage";
+@use "pages/blog";
+@use "pages/footer";

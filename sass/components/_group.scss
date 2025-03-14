@@ -1,3 +1,5 @@
+@use '../abstracts/mixins' as *;
+
 .is-style-group-horizontal-scroll {
     gap: var(--wp--preset--spacing--10);
     padding: var(--wp--preset--spacing--10);

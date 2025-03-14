@@ -56,19 +56,19 @@ document.addEventListener('DOMContentLoaded', function() {
     var nextButton = document.querySelector('.btn-next-slide');
 
     // Función para actualizar el estado de los botones
-    function updateButtons(currentSlide, slideCount) {
-        if (currentSlide === 0) {
-            prevButton.classList.add('disabled');
-        } else {
-            prevButton.classList.remove('disabled');
-        }
-
-        if (currentSlide === slideCount - 1) {
-            nextButton.classList.add('disabled');
-        } else {
-            nextButton.classList.remove('disabled');
-        }
-    }
+    // function updateButtons(currentSlide, slideCount) {
+    //    if (currentSlide === 0) {
+    //        prevButton.classList.add('disabled');
+    //    } else {
+    //        prevButton.classList.remove('disabled');
+    //    }
+    //
+    //    if (currentSlide === slideCount - 1) {
+    //        nextButton.classList.add('disabled');
+    //    } else {
+    //        nextButton.classList.remove('disabled');
+    //    }
+    //}
 
     // Asegúrate de que los botones existen
     if (prevButton && nextButton) {
