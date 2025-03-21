@@ -138,6 +138,7 @@
 .toggle-secondary-menu {
     display: none !important;
     justify-self: end;
+    order: 99;
 
     &:hover {
         cursor: pointer;
@@ -210,3 +211,13 @@
     }
     
 }
+
+.mega-wpml-ls-item.mega-wpml-ls-last-item {
+    a.mega-menu-link {
+        &::before {
+            content: url(./assets/icons/language-icon.svg);
+            margin-right: 0rem !important;
+            padding-top: 1px;
+        }
+    }
+}  

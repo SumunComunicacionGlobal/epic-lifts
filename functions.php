@@ -106,6 +106,3 @@ function get_term_class($class, $term_id = 0, $taxonomy = '') {
 
     return $classes;
 }
- 
-
-

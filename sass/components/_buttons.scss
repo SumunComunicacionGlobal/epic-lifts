@@ -1,7 +1,13 @@
 .wp-element-button, .wp-block-button__link {
-	transition: transform 0.3s ease;
+	transition: transform .3s cubic-bezier(0.6, -0.28, 0.74, 0.05);
+	
 	&:hover {
-		width: 110%;
+		transform: translateX(0.5rem);
+
+		.btn-prev-slide &,
+		.btn-next-slide & {
+			transform: none;
+		}
 	}
 }
 
