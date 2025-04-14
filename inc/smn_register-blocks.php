@@ -27,3 +27,35 @@ function smn_register_block_script() {
     
 }
  add_action( 'init', 'smn_register_block_script' );
+
+ add_filter( 'render_block', 'smn_render_block', 10, 2 );
+function smn_render_block( $block_content, $block ) {
+	
+	if ( $block['blockName'] === 'core/post-excerpt' ) {
+		
+		global $post;
+		$excerpt = $post->post_excerpt;
+
+		if ( 'caso-de-exito' == $post->post_type ) {
+			
+			if ( !$post->post_excerpt ) return '';
+			
+			$array = explode( PHP_EOL, $post->post_excerpt );
+			$r = '<ul class="wp-block-list is-style-separator-list excerpt-list">';
+			foreach ( $array as $i ) {
+				$r .= '<li>' . $i . '</li>';
+			}
+			$r .= '</ul>';
+		
+			$excerpt = $r;
+			
+			$block_content = '<div class="wp-block-post-excerpt__excerpt">';
+				$block_content .= $excerpt;
+			$block_content .= '</div>';
+		}
+
+	}
+
+	return $block_content;
+	
+}
