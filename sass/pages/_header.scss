@@ -105,13 +105,14 @@
     }
 
     @media ($below-tablet) {
-        .masthead-menu-contact {
+        .masthead-menu-contact,
+        > div:first-child {
             display: none;
         }
 
-        img.mega-menu-logo {
-            max-height: 100% !important;
-        }
+        // img.mega-menu-logo {
+        //     max-height: 100% !important;
+        // }
     }
     
     #navbar {
