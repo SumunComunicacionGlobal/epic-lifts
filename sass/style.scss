@@ -45,13 +45,15 @@ Use it to make something cool, have fun, and share what you've learned.
 @use "components/buttons";
 @use "components/cover";
 @use "components/cards";
+@use "components/media-text";
 @use "components/group";
 @use "components/lists";
 @use "components/nav";
 @use "components/pagination";
 @use "components/query";
 @use "components/search";
-
+@use "components/cb-carousel";
+@use "components/table";
 
 /*--------------------------------------------------------------
 # Pages

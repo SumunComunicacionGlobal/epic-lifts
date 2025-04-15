@@ -66,3 +66,17 @@
 	opacity: 0.5;
 	filter: invert(0.5);
 }
+
+.scroll-more {
+    position: relative;
+
+	a:after {
+		content: "";
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+	}
+
+}
