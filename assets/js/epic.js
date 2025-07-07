@@ -23,15 +23,19 @@ document.addEventListener("DOMContentLoaded", function() {
     const megaIndicator = document.querySelector(".mega-indicator");
     const masthead = document.getElementById("masthead");
 
-    megaMenuGrid.addEventListener("click", function(event) {
-        event.stopPropagation(); // Evita que el click se propague al documento
-        masthead.classList.add("main-mega-menu-open");
-    });
+    if (megaMenuGrid) {
+        megaMenuGrid.addEventListener("click", function(event) {
+            event.stopPropagation(); // Evita que el click se propague al documento
+            masthead.classList.add("main-mega-menu-open");
+        });
+    }
 
-    megaIndicator.addEventListener("click", function(event) {
-        event.stopPropagation(); // Evita que el click se propague al documento
-        masthead.classList.add("main-mega-menu-open");
-    });
+    if (megaIndicator) {
+        megaIndicator.addEventListener("click", function(event) {
+            event.stopPropagation(); // Evita que el click se propague al documento
+            masthead.classList.add("main-mega-menu-open");
+        });
+    }
 
     document.addEventListener("click", function(event) {
         if (!masthead.contains(event.target) && !event.target.closest(".mega-menu-grid .mega-menu-link")) {
@@ -120,7 +124,7 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         }
     } else {
-        console.error('Los botones .btn-prev-slide y/o .btn-next-slide no se encontraron en el DOM.');
+        console.warn('Los botones .btn-prev-slide y/o .btn-next-slide no se encontraron en el DOM.');
     }
 });
 
