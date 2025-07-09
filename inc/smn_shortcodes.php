@@ -4,12 +4,19 @@ function get_remote_sdm_downloads_epic($atts) {
     // Extrae el atributo product_category del shortcode
     $atts = shortcode_atts(array(
         'product_category' => '13', // ID por defecto
+        'domain' => 'epicpowerconverters.com'
     ), $atts, 'remote_downloads');
 
     $product_category = $atts['product_category'];
+    $domain = $atts['domain'];
+
+    // Asegura que el dominio tenga https:// si no contiene http o https
+    if (strpos($domain, 'http://') !== 0 && strpos($domain, 'https://') !== 0) {
+        $domain = 'https://' . $domain;
+    }
 
     // URL de la API con el ID de la categoría
-    $url = 'https://epicpowerconverters.com/wp-json/wp/v2/sdm_downloads?product_category=' . $product_category . '&per_page=100';
+    $url = $domain . '/wp-json/wp/v2/sdm_downloads?product_category=' . $product_category . '&per_page=100';
 
     $response = wp_remote_get($url);
 
