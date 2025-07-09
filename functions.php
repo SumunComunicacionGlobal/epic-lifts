@@ -34,6 +34,8 @@ endif;
 
 add_action( 'after_setup_theme', 'smn_support' );
 
+add_filter( 'wpml_tm_job_field_is_translatable', '__return_true' );
+
 if ( ! function_exists( 'smn_styles' ) ) :
 
 	/**
