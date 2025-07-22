@@ -50,5 +50,5 @@ add_shortcode('remote_downloads', 'display_remote_sdm_downloads_epic');
 
 add_shortcode( 'rank_math_breadcrumb', 'smn_wpseo_breadcrumb' );
 function smn_wpseo_breadcrumb() {
-    return do_shortcode( '[wpseo_breadcrumb]' );
+    return wpautop( do_shortcode( '[wpseo_breadcrumb]' ) );
 }
