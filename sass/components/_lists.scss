@@ -4,7 +4,8 @@ ol.has-background, ul.has-background {
 
 ul.is-style-separator-list,
 ul.is-style-arrow-separator-list,
-ul.is-style-arrow-mini-separator-list {
+ul.is-style-arrow-mini-separator-list,
+ul.dlm-downloads {
 	
     padding: 0;
     list-style: none;
@@ -31,7 +32,8 @@ ul.is-style-arrow-mini-separator-list {
 ul.is-style-arrow-list,
 ul.is-style-download-list,
 ul.is-style-arrow-separator-list,
-ul.is-style-arrow-mini-separator-list {
+ul.is-style-arrow-mini-separator-list,
+ul.dlm-downloads {
 	list-style: none;
 	position: relative;
 	padding: 0;
@@ -87,7 +89,8 @@ ul.is-style-arrow-mini-separator-list {
 	}
 }
 
-ul.is-style-download-list {
+ul.is-style-download-list,
+ul.dlm-downloads {
 	
 	li {
 		padding: 0 0 var(--wp--preset--spacing--10) var(--wp--preset--spacing--20);
