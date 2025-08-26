@@ -64,7 +64,7 @@ add_shortcode('categorized_downloads', function() {
 
     $output = '';
     foreach ($terms as $term) {
-        $output .= '<h2>' . esc_html($term->name) . '</h2>';
+        $output .= '<h2>' . sprintf( __( 'Descargas %s', 'epic'), esc_html($term->name) ) . '</h2>';
         $output .= do_shortcode('[downloads category="' . esc_attr($term->slug) . '"]');
     }
 
