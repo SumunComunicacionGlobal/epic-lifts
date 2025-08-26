@@ -13,6 +13,24 @@ function assign_dlm_download_category_to_caso_de_exito() {
 }
 add_action('init', 'assign_dlm_download_category_to_caso_de_exito');
 
+// Show 'dlm_download_category' column in 'caso-de-exito' admin list
+add_filter('manage_caso-de-exito_posts_columns', function($columns) {
+	$columns['dlm_download_category'] = __('Category', 'epic');
+	return $columns;
+});
+
+add_action('manage_caso-de-exito_posts_custom_column', function($column, $post_id) {
+	if ($column === 'dlm_download_category') {
+		$terms = get_the_terms($post_id, 'dlm_download_category');
+		if (!empty($terms) && !is_wp_error($terms)) {
+			$term_names = wp_list_pluck($terms, 'name');
+			echo esc_html(implode(', ', $term_names));
+		} else {
+			echo '&mdash;';
+		}
+	}
+}, 10, 2);
+
 if ( ! function_exists( 'smn_support' ) ) :
 
 	/**
