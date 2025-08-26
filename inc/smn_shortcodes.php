@@ -52,3 +52,21 @@ add_shortcode( 'rank_math_breadcrumb', 'smn_wpseo_breadcrumb' );
 function smn_wpseo_breadcrumb() {
     return wpautop( do_shortcode( '[wpseo_breadcrumb]' ) );
 }
+
+add_shortcode('categorized_downloads', function() {
+    $terms = get_terms(array(
+        'taxonomy' => 'dlm_download_category',
+    ));
+
+    if (is_wp_error($terms) || empty($terms)) {
+        return 'No categories found.';
+    }
+
+    $output = '';
+    foreach ($terms as $term) {
+        $output .= '<h2>' . esc_html($term->name) . '</h2>';
+        $output .= do_shortcode('[downloads category="' . esc_attr($term->slug) . '"]');
+    }
+
+    return $output;
+});
