@@ -7,6 +7,12 @@
  * @package epic
  */
 
+// Assign existing 'dlm_download_category' taxonomy to 'caso-de-exito' custom post type
+function assign_dlm_download_category_to_caso_de_exito() {
+	register_taxonomy_for_object_type('dlm_download_category', 'caso-de-exito');
+}
+add_action('init', 'assign_dlm_download_category_to_caso_de_exito');
+
 if ( ! function_exists( 'smn_support' ) ) :
 
 	/**
