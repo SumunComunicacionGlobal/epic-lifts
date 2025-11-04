@@ -23,12 +23,7 @@ function sumun_show_original_language_column($column_name, $post_id) {
     $details = apply_filters('wpml_element_language_details', NULL, $args);
     if ( isset( $details->source_language_code ) && !empty( $details->source_language_code ) ) {
         $code = $details->source_language_code;
-        $edit_link = get_edit_post_link( $details->trid );
-        if ( $edit_link ) {
-            echo '<a href="' . esc_url( $edit_link ) . '"><strong>' . esc_html( strtoupper( $code ) ) . '</strong></a>';
-        } else {
-            echo '<strong>' . esc_html( strtoupper( $code ) ) . '</strong>';
-        }
+        echo '<strong>' . esc_html( strtoupper( $code ) ) . '</strong>';
     }
 
 }
