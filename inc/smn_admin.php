@@ -27,13 +27,3 @@ function sumun_show_original_language_column($column_name, $post_id) {
     }
 
 }
-
-// Opcional: hacer la columna ordenable
-add_filter('manage_edit-post_sortable_columns', function($columns) {
-    $columns['original_language'] = 'original_language';
-    return $columns;
-});
-add_filter('manage_edit-page_sortable_columns', function($columns) {
-    $columns['original_language'] = 'original_language';
-    return $columns;
-});
