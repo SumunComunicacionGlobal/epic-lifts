@@ -99,6 +99,9 @@ require get_template_directory() . '/inc/smn_register-blocks.php';
 // Shortcodes
 require get_template_directory() . '/inc/smn_shortcodes.php';
 
+// Admin customizations
+require get_template_directory() . '/inc/smn_admin.php';
+
 
 /* Quitar <p> y <br/> de Contact Form 7 */
 add_filter('wpcf7_autop_or_not', '__return_false');
