@@ -26,3 +26,12 @@ body .is-layout-flow {
 .single-caso-de-exito main {
     padding-bottom: 3rem;
 }
+
+@media ($above-mobile) {
+    
+    .smn-page-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--wp--custom--layout--block-gap);
+    }
+}

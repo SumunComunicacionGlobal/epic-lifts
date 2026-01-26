@@ -70,3 +70,59 @@ add_shortcode('categorized_downloads', function() {
 
     return $output;
 });
+
+add_shortcode( 'page_grid', 'smn_page_grid_shortcode' );
+function smn_page_grid_shortcode( $atts ) {
+    $atts = shortcode_atts( array(
+        'posts_per_page' => -1,
+        'post_type' => 'page',
+        'post_parent' => 0,
+    ), $atts, 'page_grid' );
+
+    // If no post_parent is specified, use the current page ID
+    if ( $atts['post_parent'] == 0 ) {
+        $atts['post_parent'] = get_the_ID();
+    }
+
+    $args = array(
+        'post_type'      => $atts['post_type'],
+        'posts_per_page' => intval( $atts['posts_per_page'] ),
+        'post_parent'    => intval( $atts['post_parent'] ),
+        'orderby'        => 'menu_order',
+        'order'          => 'ASC',
+    );
+
+    $query = new WP_Query( $args );
+
+    if ( ! $query->have_posts() ) {
+        return '';
+    }
+
+
+    $output = '<div class="wp-block-query smn-page-grid">';
+    while ( $query->have_posts() ) {
+        $query->the_post();
+        global $post;
+        $output .= '<div class="wp-block-post smn-page-grid-item">';
+            if ( has_post_thumbnail() ) {
+                $output .= '<div class="smn-page-grid-thumbnail"><a href="' . get_permalink() . '">' . get_the_post_thumbnail( get_the_ID(), 'medium' ) . '</a></div>';
+            }
+            $output .= '<h2 class="smn-page-grid-title"><a href="' . get_permalink() . '">' . get_the_title() . '</a></h2>';
+            $excerpt = $post->post_excerpt;
+            if ( $excerpt ) {
+                $output .= '<div class="smn-page-grid-excerpt">' . wpautop( esc_html( $excerpt ) ) . '</div>';
+            }
+            $output .= '<div class="wp-block-group is-layout-flex">';
+                $output .= '<a class="wp-block-read-more has-small-font-size" href="' . esc_url( apply_filters( 'wpml_permalink', get_permalink(), apply_filters( 'wpml_current_language', NULL ) ) ) . '">' . esc_html__( 'Seguir leyendo', 'epic' ) . '</a> ';
+                $output .= '<div class="wp-block-buttons is-layout-flex wp-block-buttons-is-layout-flex">';
+                    $output .= '<div class="wp-block-button is-style-outline">';
+                        $output .= '<a class="wp-block-button__link" href="' . esc_url( apply_filters( 'wpml_permalink', get_permalink(19), apply_filters( 'wpml_current_language', NULL ) ) ) . '">' . esc_html__( 'Solicitar información', 'epic' ) . '</a>';
+                    $output .= '</div>';
+                $output .= '</div>';
+            $output .= '</div>';
+        $output .= '</div>';
+    }
+    $output .= '</div>';
+    wp_reset_postdata();
+    return $output;
+}
