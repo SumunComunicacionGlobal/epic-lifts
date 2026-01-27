@@ -23,7 +23,11 @@ function sumun_show_original_language_column($column_name, $post_id) {
     $details = apply_filters('wpml_element_language_details', NULL, $args);
     if ( isset( $details->source_language_code ) && !empty( $details->source_language_code ) ) {
         $code = $details->source_language_code;
-        echo '<strong>' . esc_html( strtoupper( $code ) ) . '</strong>';
+    } else {
+        $code = apply_filters( 'wpml_post_language_code', NULL, $post_id );
     }
+
+    echo '<strong>' . esc_html( strtoupper( $code ) ) . '</strong>';
+
 
 }
