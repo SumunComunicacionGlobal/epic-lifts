@@ -24,10 +24,14 @@ function sumun_show_original_language_column($column_name, $post_id) {
     if ( isset( $details->source_language_code ) && !empty( $details->source_language_code ) ) {
         $code = $details->source_language_code;
     } else {
-        $code = apply_filters( 'wpml_post_language_code', NULL, $post_id );
+        $code = isset( $code['language_code'] ) ? $code['language_code'] : '';
     }
 
+    $edit_link = get_edit_post_link( $post_id );
     echo '<strong>' . esc_html( strtoupper( $code ) ) . '</strong>';
+    if ( $edit_link ) {
+        echo ' [<a href="' . esc_url( $edit_link ) . '">' . __('Edit', 'sumun') . '</a>]';
+    }
 
 
 }
