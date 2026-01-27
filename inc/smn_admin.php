@@ -24,14 +24,8 @@ function sumun_show_original_language_column($column_name, $post_id) {
     if ( isset( $details->source_language_code ) && !empty( $details->source_language_code ) ) {
         $code = $details->source_language_code;
     } else {
-        $code = isset( $code['language_code'] ) ? $code['language_code'] : '';
+        $code = isset( $details->language_code ) ? $details->language_code : '';
     }
-
-    if ( current_user_can( 'manage_options' ) ) :
-        echo '<pre>';
-            print_r ( $details );
-        echo '</pre>';
-    endif;
 
     echo '<strong>' . esc_html( strtoupper( $code ) ) . '</strong>';
 
