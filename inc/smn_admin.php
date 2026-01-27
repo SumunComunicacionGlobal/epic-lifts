@@ -27,11 +27,13 @@ function sumun_show_original_language_column($column_name, $post_id) {
         $code = isset( $code['language_code'] ) ? $code['language_code'] : '';
     }
 
-    $edit_link = get_edit_post_link( $post_id );
+    if ( current_user_can( 'manage_options' ) ) :
+        echo '<pre>';
+            print_r ( $details );
+        echo '</pre>';
+    endif;
+
     echo '<strong>' . esc_html( strtoupper( $code ) ) . '</strong>';
-    if ( $edit_link ) {
-        echo ' [<a href="' . esc_url( $edit_link ) . '">' . __('Edit', 'sumun') . '</a>]';
-    }
 
 
 }
