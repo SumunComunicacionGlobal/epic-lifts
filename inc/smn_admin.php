@@ -23,11 +23,13 @@ function sumun_show_original_language_column($column_name, $post_id) {
     $details = apply_filters('wpml_element_language_details', NULL, $args);
     if ( isset( $details->source_language_code ) && !empty( $details->source_language_code ) ) {
         $code = $details->source_language_code;
+        $bg_color = '#d4edda'; // light green
     } else {
         $code = isset( $details->language_code ) ? $details->language_code : '';
+        $bg_color = '#f8d7da'; // light red
     }
 
-    echo '<strong>' . esc_html( strtoupper( $code ) ) . '</strong>';
+    echo '<strong style="background-color:' . esc_attr( $bg_color ) . ';">' . esc_html( strtoupper( $code ) ) . '</strong>';
 
 
 }
