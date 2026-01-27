@@ -135,3 +135,23 @@ function get_term_class($class, $term_id = 0, $taxonomy = '') {
 
     return $classes;
 }
+
+function epic_codigo_ticket() {
+	return '#' . rand ( 1000000000 , 9999999999 ) . ': ';
+}
+
+function codigo_ticket_mail_tag( $output, $name, $html ) {
+	if ( 'codigo_ticket' == $name )
+		$output = epic_codigo_ticket();
+ 
+	return $output;
+}
+add_filter( 'wpcf7_special_mail_tags', 'codigo_ticket_mail_tag', 10, 3 );
+
+add_filter( 'wpcf7_posted_data', 'action_wpcf7_posted_data', 10, 1 );
+function action_wpcf7_posted_data( $array ) { 
+    $value = $array['your-subject'];
+    $array['your-subject'] = epic_codigo_ticket() . $value;
+
+    return $array;
+};
