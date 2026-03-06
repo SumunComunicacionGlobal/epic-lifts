@@ -32,6 +32,7 @@ ul.dlm-downloads {
 ul.is-style-arrow-list,
 ul.is-style-download-list,
 ul.is-style-arrow-separator-list,
+ul.is-style-arrow-mini-list,
 ul.is-style-arrow-mini-separator-list,
 ul.dlm-downloads {
 	list-style: none;
@@ -75,10 +76,11 @@ ul.is-style-arrow-separator-list {
     }
 }
 
+ul.is-style-arrow-mini-list, 
 ul.is-style-arrow-mini-separator-list {
 
 	li:not(:first-child) {
-		padding: var(--wp--preset--spacing--10) 0 var(--wp--preset--spacing--10) var(--wp--preset--spacing--40);
+		padding: .5em 0 .5em var(--wp--preset--spacing--40);
 	}
 
 	li:before{
@@ -86,6 +88,19 @@ ul.is-style-arrow-mini-separator-list {
 		position: absolute;
 		top: auto;
 		left: 0;
+	}
+	
+}
+
+ul.is-style-arrow-mini-list {
+	li {
+		padding-bottom: .5em;
+	}
+}
+
+ul.is-style-arrow-mini-separator-list {
+	li:not(:first-child) {
+		padding: var(--wp--preset--spacing--10) 0 var(--wp--preset--spacing--10) var(--wp--preset--spacing--40);
 	}
 }
 
