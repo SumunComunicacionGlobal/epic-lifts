@@ -112,12 +112,13 @@ function smn_page_grid_shortcode( $atts ) {
             if ( $excerpt ) {
                 $output .= '<div class="smn-page-grid-excerpt">' . wpautop( esc_html( $excerpt ) ) . '</div>';
             }
-            $output .= '<div class="wp-block-group is-layout-flex">';
-                $output .= '<a class="wp-block-read-more has-small-font-size" href="' . esc_url( apply_filters( 'wpml_permalink', get_permalink(), apply_filters( 'wpml_current_language', NULL ) ) ) . '">' . esc_html__( 'Continue reading', 'epic' ) . '</a> ';
-                $output .= '<div class="wp-block-buttons is-layout-flex wp-block-buttons-is-layout-flex">';
-                    $output .= '<div class="wp-block-button is-style-outline">';
-                        $output .= '<a class="wp-block-button__link" href="' . esc_url( apply_filters( 'wpml_permalink', get_permalink(19), apply_filters( 'wpml_current_language', NULL ) ) ) . '">' . esc_html__( 'Request info', 'epic' ) . '</a>';
-                    $output .= '</div>';
+            // $output .= '<a class="wp-block-read-more has-small-font-size" href="' . esc_url( apply_filters( 'wpml_permalink', get_permalink(), apply_filters( 'wpml_current_language', NULL ) ) ) . '">' . esc_html__( 'Continue reading', 'epic' ) . '</a> ';
+            $output .= '<div class="wp-block-buttons is-layout-flex wp-block-buttons-is-layout-flex">';
+                $output .= '<div class="wp-block-button is-style-outline">';
+                    $output .= '<a class="wp-block-button__link" href="' . esc_url( apply_filters( 'wpml_permalink', get_permalink(), apply_filters( 'wpml_current_language', NULL ) ) ) . '">' . esc_html__( 'Continue reading', 'epic' ) . '</a>';
+                $output .= '</div>';
+                $output .= '<div class="wp-block-button is-style-outline-with-arrow">';
+                    $output .= '<a class="wp-block-button__link" href="' . esc_url( apply_filters( 'wpml_permalink', get_permalink(19), apply_filters( 'wpml_current_language', NULL ) ) ) . '">' . esc_html__( 'Request info', 'epic' ) . '</a>';
                 $output .= '</div>';
             $output .= '</div>';
         $output .= '</div>';
