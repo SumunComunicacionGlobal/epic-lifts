@@ -35,3 +35,30 @@ body .is-layout-flow {
         gap: var(--wp--custom--layout--block-gap);
     }
 }
+
+body[class*="-no-hero"] {
+        
+    .post-password-form {
+
+        &:before {
+            content: "";
+            display: block;
+            height: 300px;
+            width: 100vw;
+            margin: 0 calc(-50vw + 50%) var(--wp--preset--spacing--60);
+            background: var(--wp--preset--color--primary);
+        }
+
+    }
+
+}
+
+.post-password-form {
+    margin-bottom: var(--wp--preset--spacing--60) !important;
+
+    input[type="password"] {
+        margin-top: var(--wp--preset--spacing--10);
+        margin-bottom: var(--wp--preset--spacing--20);
+        border: 1px solid var(--wp--preset--color--neutral-60);
+    }
+}
