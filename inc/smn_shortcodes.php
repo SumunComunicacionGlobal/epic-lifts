@@ -53,23 +53,85 @@ function smn_wpseo_breadcrumb() {
     return wpautop( do_shortcode( '[wpseo_breadcrumb]' ) );
 }
 
-add_shortcode('categorized_downloads', function() {
-    $terms = get_terms(array(
-        'taxonomy' => 'dlm_download_category',
-    ));
+add_shortcode('categorized_downloads', 'smn_categorized_downloads_shortcode');
+function smn_categorized_downloads_shortcode($atts) {
+    $atts = shortcode_atts(array(
+        'category' => '',
+        'tag' => '',
+    ), $atts, 'categorized_downloads');
 
-    if (is_wp_error($terms) || empty($terms)) {
+    $output = '';
+
+    // Get categories
+    if (!empty($atts['category'])) {
+        $categories = get_terms(array(
+            'taxonomy' => 'dlm_download_category',
+            'slug' => $atts['category'],
+            'hide_empty' => false,
+        ));
+    } else {
+        $categories = get_terms(array(
+            'taxonomy' => 'dlm_download_category',
+            'hide_empty' => false,
+        ));
+    }
+
+    if (is_wp_error($categories) || empty($categories)) {
         return 'No categories found.';
     }
 
-    $output = '';
-    foreach ($terms as $term) {
-        $output .= '<h2>' . sprintf( __( 'Descargas %s', 'epic'), '<strong>' . esc_html($term->name) . '</strong>' ) . '</h2>';
-        $output .= do_shortcode('[downloads category="' . esc_attr($term->slug) . '"]');
+    foreach ($categories as $category) {
+        $output .= '<h2 class="download-category-title">' . sprintf(__('Descargas %s', 'epic'), '<strong>' . esc_html($category->name) . '</strong>') . '</h2>';
+
+        // Get tags for this category
+        $args = array(
+            'taxonomy' => 'dlm_download_tag',
+            'hide_empty' => false,
+        );
+        if (!empty($atts['tag'])) {
+            $args['slug'] = $atts['tag'];
+        }
+        $tags = get_terms($args);
+
+        if (!empty($tags) && !is_wp_error($tags)) {
+            foreach ($tags as $tag) {
+                $list = do_shortcode('[downloads category="' . esc_attr($category->slug) . '" tag="' . esc_attr($tag->slug) . '"]');
+                if ( $list ) {
+                    $output .= '<h3 class="download-tag-title">' . esc_html($tag->name) . '</h3>';
+                    $output .= $list;
+                }
+            }
+        } else {
+            // No tags, just output downloads for the category
+            $output .= do_shortcode('[downloads category="' . esc_attr($category->slug) . '"]');
+        }
+
+        // Show downloads with no tag under "Others"
+        $untagged_posts_ids = get_posts(array(
+            'post_type' => 'dlm_download',
+            'numberposts' => -1,
+            'tax_query' => array(
+                'relation' => 'AND',
+                array(
+                    'taxonomy' => 'dlm_download_category',
+                    'field' => 'slug',
+                    'terms' => $category->slug,
+                ),
+                array(
+                    'taxonomy' => 'dlm_download_tag',
+                    'operator' => 'NOT EXISTS',
+                ),
+            ),
+            'fields' => 'ids',
+        ));
+        if (!empty($untagged_posts_ids)) {
+            $output .= '<h3 class="download-tag-title">' . esc_html__('Otros', 'epic') . '</h3>';
+            $output .= do_shortcode('[downloads category="' . esc_attr($category->slug) . '" include="' . implode(',', $untagged_posts_ids) . '"]');
+        } 
     }
 
     return $output;
-});
+}
 
 add_shortcode( 'page_grid', 'smn_page_grid_shortcode' );
 function smn_page_grid_shortcode( $atts ) {

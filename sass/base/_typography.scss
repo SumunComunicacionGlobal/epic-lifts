@@ -16,3 +16,10 @@
     display: inline-block;
     min-width: 300px;
 }
+
+.download-tag-title {
+	font-size: var(--wp--preset--font-size--body);
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+	font-weight: 600;
+}
