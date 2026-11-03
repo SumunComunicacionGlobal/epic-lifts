@@ -18,6 +18,10 @@ wp.domReady( () => {
 			label: 'Flecha con separador',
 		},
 		{
+			name: 'arrow-mini-list',
+			label: 'Flecha mini',
+		},
+		{
 			name: 'arrow-mini-separator-list',
 			label: 'Flecha mini con separador',
 		},

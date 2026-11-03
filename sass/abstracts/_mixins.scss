@@ -21,31 +21,41 @@ $above-desktop: "min-width:1440px";
 
 // Mixin para clases de ocultar en diferentes tamaños de dispositivos
 @mixin hide-on-device($device) {
+
   @if $device == mobile {
+
     @media ($below-mobile) {
+
       .hidden-mobile {
         display: none !important;
       }
     }
   } @else if $device == tablet {
+
     @media ($above-mobile) and ($below-tablet) {
+
       .hidden-tablet {
         display: none !important;
       }
     }
   } @else if $device == laptop {
+
     @media ($above-tablet) and ($below-desktop) {
+
       .hidden-laptop {
         display: none !important;
       }
     }
   } @else if $device == desktop {
+
       @media ($above-desktop) {
+
         .hidden-desktop {
           display: none !important;
         }
       }
   } @else {
+
     @warn "El dispositivo no es válido. Use 'mobile', 'tablet', o 'desktop'.";
   }
 }

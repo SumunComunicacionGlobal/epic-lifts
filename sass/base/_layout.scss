@@ -5,6 +5,7 @@
 }
 
 @media ($above-desktop)  {
+
     body {
         --wp--style--root--padding-right: 4rem;
         --wp--style--root--padding-left: 4rem;
@@ -13,11 +14,11 @@
 
 body .is-layout-flow {
 
-    & > .wp-block-image.alignright {
+    > .wp-block-image.alignright {
         margin-inline-start: 0;
     }
 
-    & > .wp-block-image.alignleft {
+    > .wp-block-image.alignleft {
         margin-inline-end: 0;
     }
 
@@ -33,5 +34,32 @@ body .is-layout-flow {
         display: grid;
         grid-template-columns: 1fr 1fr;
         gap: var(--wp--custom--layout--block-gap);
+    }
+}
+
+body[class*="-no-hero"] {
+        
+    .post-password-form {
+
+        &::before {
+            content: "";
+            display: block;
+            height: 300px;
+            width: 100vw;
+            margin: 0 calc(-50vw + 50%) var(--wp--preset--spacing--60);
+            background: var(--wp--preset--color--primary);
+        }
+
+    }
+
+}
+
+.post-password-form {
+    margin-bottom: var(--wp--preset--spacing--60) !important;
+
+    input[type="password"] {
+        margin-top: var(--wp--preset--spacing--10);
+        margin-bottom: var(--wp--preset--spacing--20);
+        border: 1px solid var(--wp--preset--color--neutral-60);
     }
 }

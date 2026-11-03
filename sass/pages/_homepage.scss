@@ -9,7 +9,9 @@
 .home {
 
     #masthead {
+
         .wp-block-site-logo {
+
             @media ($below-tablet) {
                 margin: 3rem 0;
             }
@@ -24,9 +26,11 @@
 
 
 @keyframes bodyAnimation {
+
     0% {
         opacity: 0;
     }
+
     100% {
         opacity: 1;
      }
@@ -40,12 +44,15 @@
 }
 
 @keyframes text {
+
 	0% { --k: 0 }
+
 	100% { --k: var(--n) }
 }
 
 
 @keyframes move-up-block {
+
 	0% {
 		transform: translateY(-100px);
 	}
@@ -56,9 +63,11 @@
 }
 
 @media (prefers-reduced-motion: no-preference) {
+
     @supports (animation-timeline: scroll()) {
   
         .move-up-block {
+
             @media ($above-tablet) {
                 animation: move-up-block ease-in-out both;
                 animation-timeline: view();
@@ -73,21 +82,18 @@
         
             span {
                 color: transparent;
-                background: 
-                /* highlight text */
-                linear-gradient(90deg, var(--wp--preset--color--foreground) 0 0) 
-                    0/ calc(var(--k)*1ch) no-repeat text
-                /* faded text */
-                var(--wp--preset--color--primary-30);
+                background: linear-gradient(90deg, var(--wp--preset--color--foreground) 0 0) 0 / calc(var(--k) * 1ch) no-repeat text var(--wp--preset--color--primary-30);
             }
         }
     }
 }
 
 .section-blog {
+
     @media ($above-tablet) { margin-top: 0 !important; }
 }
 
 #section-blog {
+
     @media ($below-tablet) { margin-top: 3rem !important; }
 }

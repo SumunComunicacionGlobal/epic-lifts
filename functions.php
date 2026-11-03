@@ -155,3 +155,13 @@ function action_wpcf7_posted_data( $array ) {
 
     return $array;
 };
+
+add_action('init', function() {
+	global $wp_taxonomies;
+	if (isset($wp_taxonomies['dlm_download_tag'])) {
+		$wp_taxonomies['dlm_download_tag']->hierarchical = true;
+		// Optionally, update labels to reflect hierarchy (optional)
+		$wp_taxonomies['dlm_download_tag']->labels->parent_item = __('Parent Tag', 'epic');
+		$wp_taxonomies['dlm_download_tag']->labels->parent_item_colon = __('Parent Tag:', 'epic');
+	}
+}, 100);

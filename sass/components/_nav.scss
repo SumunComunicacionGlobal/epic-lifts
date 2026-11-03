@@ -3,7 +3,7 @@
 .wp-block-navigation__responsive-container.is-menu-open {
     max-width: var(--wp--custom--layout--wide);
     padding: var(wp--custom--layout--block-gap);
-    box-shadow: 4px 8px 0px 0px rgba(0, 0, 0, 0.15);
+    box-shadow: 4px 8px 0 0 rgba(0, 0, 0, 0.15);
 
     .wp-block-navigation__responsive-container-content {
         padding-top: 0;
@@ -17,7 +17,9 @@
         transition: .3s ease-in-out;
 
         &.secondary-menu-open {   
+
             body.scrolled & {
+
                 ul.max-mega-menu {
                     grid-template-columns: repeat(2, auto) 1fr repeat(5, auto);
         
@@ -85,6 +87,7 @@
             }
 
             .wp-block-cover {
+
                 .wp-block-cover__background {
                     transition: opacity 0.5s ease-in-out;
                 }
@@ -106,23 +109,23 @@
 
         ul.max-mega-menu {
             
-            & > li.mega-menu-item:nth-child(n+3) > a.mega-menu-link {
+            > li.mega-menu-item:nth-child(n+3) > a.mega-menu-link {
                 padding: .5rem 2.5rem !important;
                 background-color: var(--wp--preset--color--primary) !important;
                 border-radius: var(--wp--custom--border-radius--md) !important;
                 height: 4rem !important;
-                line-height: 3rem !important;
+                line-height: 48px !important;
             }
 
-            & > li.mega-menu-item:nth-child(5) > a.mega-menu-link {
+            > li.mega-menu-item:nth-child(5) > a.mega-menu-link {
                 margin-bottom: 1rem !important;
             }
             
-            & > li.mega-menu-item:nth-child(n+6) > a.mega-menu-link {
+            > li.mega-menu-item:nth-child(n+6) > a.mega-menu-link {
                 background-color: var(--wp--preset--color--neutral-100) !important;
             }
 
-            & > li.mega-menu-item.button-contact-menu a.mega-menu-link {
+            > li.mega-menu-item.button-contact-menu a.mega-menu-link {
                 margin-top: 1rem !important;
                 background-color: var(--wp--preset--color--background) !important;
             }
@@ -152,7 +155,7 @@
     height: 2.5rem !important;
 
     button.mega-toggle-animated.mega-toggle-animated-slider {
-        color: #ffffff !important;
+        color: #fff !important;
     }
 }
 
@@ -174,7 +177,7 @@
         left: 50%;
         width: 12px;
         height: 1.5px; /* Grosor del aspa */
-        background-color: white;
+        background-color: var(--wp--preset--color--neutral-white);
     }
 
     &::before {
@@ -189,10 +192,12 @@
 
 
 @keyframes appear-secondary-menu {
+
     0% {
         opacity: 0;
         transform: translateX(100%);
     }
+
     100% {
         opacity: 1;
         transform: translateX(0);
@@ -201,10 +206,12 @@
 }
 
 @keyframes vanish-secondary-menu {
+
     0% {
         
         transform: translateX(0);
     }
+
     100% {
         
         transform: translateX(100%);
@@ -213,10 +220,12 @@
 }
 
 .mega-wpml-ls-item.mega-wpml-ls-last-item {
+
     a.mega-menu-link {
+
         &::before {
             content: url(./assets/icons/language-icon.svg);
-            margin-right: 0rem !important;
+            margin-right: 0 !important;
             padding-top: 1px;
         }
     }

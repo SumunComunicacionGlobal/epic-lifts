@@ -32,6 +32,7 @@ ul.dlm-downloads {
 ul.is-style-arrow-list,
 ul.is-style-download-list,
 ul.is-style-arrow-separator-list,
+ul.is-style-arrow-mini-list,
 ul.is-style-arrow-mini-separator-list,
 ul.dlm-downloads {
 	list-style: none;
@@ -47,8 +48,8 @@ ul.dlm-downloads {
 		}
 	}
 
-	li:before{
-		content: url("assets/icons/arrow-list.svg");
+	li::before{
+		content: url(assets/icons/arrow-list.svg);
 		position: absolute;
 		top: 6px;
 		left: 0;
@@ -57,6 +58,7 @@ ul.dlm-downloads {
 	a {
 		transition: padding-left 0.3s ease;
         text-decoration: none;
+
 		&:hover {
 			padding-left: var(--wp--preset--spacing--10);
 			transition: padding-left 0.3s ease;
@@ -75,17 +77,33 @@ ul.is-style-arrow-separator-list {
     }
 }
 
+ul.is-style-arrow-mini-list, 
+ul.is-style-arrow-mini-separator-list {
+
+	li:not(:first-child) {
+		padding: .5em 0 .5em var(--wp--preset--spacing--40);
+	}
+
+	li::before{
+		content: url(assets/icons/arrow-right-mini.svg);
+		position: absolute;
+		top: auto;
+		left: 0;
+	}
+	
+}
+
+ul.is-style-arrow-mini-list {
+
+	li {
+		padding-bottom: .5em;
+	}
+}
+
 ul.is-style-arrow-mini-separator-list {
 
 	li:not(:first-child) {
 		padding: var(--wp--preset--spacing--10) 0 var(--wp--preset--spacing--10) var(--wp--preset--spacing--40);
-	}
-
-	li:before{
-		content: url("assets/icons/arrow-right-mini.svg");
-		position: absolute;
-		top: auto;
-		left: 0;
 	}
 }
 
@@ -100,8 +118,8 @@ ul.dlm-downloads {
 		padding: var(--wp--preset--spacing--10) 0 var(--wp--preset--spacing--10) var(--wp--preset--spacing--20);
 	}
 
-	li:before{
-		content: url("assets/icons/download-icon.svg");
+	li::before{
+		content: url(assets/icons/download-icon.svg);
 		top: auto;
 		left: 0;
 	}

@@ -20,13 +20,13 @@
 	align-items: center;
 
 
-	&:after {
+	&::after {
 		content: '';
 		display: inline-block;
 		width: 14px;
 		height: 14px;
 		margin-left: 1rem;
-		background-color: currentColor; /* Esto asegura que el color del SVG coincida con el color del texto */
+		background-color: currentcolor; /* Esto asegura que el color del SVG coincida con el color del texto */
 		mask-image: url(./assets/icons/arrow-right.svg);
 		mask-size: cover;
 		mask-repeat: no-repeat;
@@ -37,10 +37,10 @@
 .wp-block-button.is-style-outline-with-arrow .wp-block-button__link,
 .wp-block-button.is-style-outline:not(.btn-next-slide, .btn-prev-slide) .wp-block-button__link {
 	background: transparent none;
-    border-color: currentColor;
+    border-color: currentcolor;
     border-width: 1px !important;
     border-style: solid;
-    color: currentColor;
+    color: currentcolor;
     padding-top: 0.5rem;
     padding-right: 1.5rem;
     padding-bottom: 0.5rem;
@@ -70,7 +70,7 @@
 .scroll-more {
     position: relative;
 
-	a:after {
+	a::after {
 		content: "";
 		position: absolute;
 		top: 0;
