@@ -421,6 +421,10 @@ template {
   font-weight: 600;
 }
 
+.breadcrumbs-wrapper a {
+  text-decoration: none;
+}
+
 .components-resizable-box__container.block-library-spacer__resize-container {
   background-color: var(--wp--preset--color--primary-30);
 }
