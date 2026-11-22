@@ -21,7 +21,7 @@
             body.scrolled & {
 
                 ul.max-mega-menu {
-                    grid-template-columns: repeat(2, auto) 1fr repeat(5, auto);
+                    grid-template-columns: repeat(2, auto) 1fr repeat(6, auto);
         
                     li:nth-child(n+6):not(.toggle-secondary-menu) {
                         display: block !important;
